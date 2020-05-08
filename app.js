@@ -34,5 +34,6 @@ app.get('/:shortUrl', async (req, res) => {
     res.redirect(redirect.target);
 });
 
-app.listen(process.env.PORT || localPort);
-console.log(`Server started on port ${localPort}.`); // TODO remove for production
+app.listen(process.env.PORT || localPort, () =>
+    console.log(`Server started on port ${localPort}.`)
+);
