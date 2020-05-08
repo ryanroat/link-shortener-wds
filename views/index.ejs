@@ -14,7 +14,7 @@
   <body>
     <div class="container">
       <h1>Link Shortener</h1>
-      <form action="" method="post">
+      <form action="/shortUrls" method="post">
         <label for="fullUrl">Url</label>
         <input type="url" name="fullUrl" id="fullUrl" />
         <button class="button-primary" type="submit">Shorten</button>
@@ -29,16 +29,16 @@
           </tr>
         </thead>
         <tbody>
+          <% shortUrls.forEach(shortUrl => { %>
           <tr>
             <td>
-              <a href="https://rsrtimer.netlify.app/"
-                >https://rsrtimer.netlify.app/</a
-              >
+              <a href="<%= shortUrl.target %>"> <%= shortUrl.target %></a>
             </td>
-            <td><a href="/AbCdEf">AbCdEf</a></td>
-            <td>0</td>
-            <td>May 7 2020</td>
+            <td><a href="<%= shortUrl.short %>"> <%= shortUrl.short %></a></td>
+            <td><%= shortUrl.clicks %></td>
+            <td><%= shortUrl.createdDate %></td>
           </tr>
+          <% }); %>
         </tbody>
       </table>
     </div>
